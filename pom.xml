@@ -14,6 +14,9 @@
 	<name>conference-demo</name>
 	<description>Demo project for Spring Boot</description>
 
+	<!-- Diciamo a Spring Boot di produrre una war e non un jar -->
+	<packaging>war</packaging>
+
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -22,16 +25,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-tomcat</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
+		<!-- In questo modo non avremo più un container incorporato nell'applicazione-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-jetty</artifactId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
